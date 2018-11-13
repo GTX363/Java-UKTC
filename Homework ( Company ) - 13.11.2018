@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class App {
+	
+public static void main(String[] args) {
+	Scanner read = new Scanner(System.in);
+	Company company = new Company();
+	System.out.println("Enter company name: ");
+	String name = read.nextLine();
+	System.out.println("Enter Date Of Creation: ");
+	String date = read.nextLine();
+	System.out.println("Enter bulstat: ");
+	String bulstat = read.nextLine();
+	company.setCompanyName(name);
+	company.setDateOfCreation(date);
+	company.setBulstat(bulstat);
+	System.out.println(company.getCompanyName() + " " + company.getDateOfCreation() + " " + 
+			company.getBulstat());
+	read.close();
+}
+}
+
+// IN ANOTHER FILE
+
+
+public class Company {
+	private String companyName;
+	private String dateOfCreation;
+	private String bulstat;
+	
+	public Company() {this.bulstat = "";}
+	
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	
+	public String getCompanyName() {
+		return companyName;
+	}
+	
+	public void setDateOfCreation(String dateOfCreation) {
+		this.dateOfCreation = dateOfCreation;
+	}
+	
+	public String getDateOfCreation() {
+		return dateOfCreation;
+	}
+	
+	public void setBulstat(String bulstat) {
+		if (bulstat.length() != 10) {
+			for(int i = 0 ; i < 10 - bulstat.length() ; i++) {
+				this.bulstat += "0";
+			}
+		}
+		this.bulstat += bulstat;
+	}
+	
+	public String getBulstat() {
+		return bulstat;
+	}
+}
